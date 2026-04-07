@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Q4{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Q4</h2>
+    
+    <form method="POST" action="/q4/export" style="margin-bottom: 24px;">
+        <button type="submit">Export to JSON</button>
+    </form>
+    
+    {% if success is defined %}
+        {% if success %}
+            <p style="color: var(--no); font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">
+                Export successful!
+            </p>
+            <p>All database records have been successfully saved to a JSON file.</p>
+            
+            <hr />
+            
+            <h4>Please check the exported file:</h4>
+            <p style="background: #e5e7eb; padding: 12px; border-radius: var(--radius); font-family: var(--font); margin-top: 10px;">
+                <strong>On your Host Machine:</strong> q4/data.json<br>
+                <strong>Inside Docker Container:</strong> /q4/data.json
+            </p>
+        {% else %}
+            <p style="color: var(--yes); font-weight: bold; font-size: 1.1rem; margin-bottom: 10px;">
+                Export failed!
+            </p>
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from db import init_db, query_db, get_db
+from db import init_db, query_db, get_db, export_db_to_json
 app = Flask(__name__)
 
 @app.route("/")
@@ -42,6 +42,19 @@ def q2():
 @app.route("/q3")
 def q3():
     return render_template("q3.html")
+
+@app.route("/q4")
+def q4():
+    return render_template("q4.html")
+
+
+@app.route("/q4/export", methods=["POST"])
+def q4_export():
+    try:
+        export_db_to_json("/q4")
+        return render_template("q4.html", success=True)
+    except Exception as e:
+        return render_template("q4.html", success=False, error=str(e))
 
 init_db()
 

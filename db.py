@@ -1,4 +1,5 @@
 import os
+import json
 import sqlite3
 
 from contextlib import contextmanager
@@ -75,3 +76,18 @@ def init_db():
                 (7, 2, 5,  50,  '2025-12-01');
         """)
         conn.commit()
+
+def export_db_to_json(export_dir="/q4"):
+    os.makedirs(export_dir, exist_ok=True)
+    with get_db() as conn:
+        tables = [
+            r[0] for r in conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()
+        ]
+        data = {
+            t: [dict(r) for r in conn.execute(f"SELECT * FROM {t}").fetchall()]
+            for t in tables
+        }
+    with open(os.path.join(export_dir, "data.json"), "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
