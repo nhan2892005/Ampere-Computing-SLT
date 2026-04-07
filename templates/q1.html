@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_table %}
+
+{% block title %}Q1{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Q1</h2>
+
+    {% for table_name, rows in tables.items() %}
+    <div class="table-section">
+        <h4>{{ table_name }}</h4>
+        {{ render_table(rows) }}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
