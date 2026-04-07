@@ -97,3 +97,49 @@ tbody tr:hover { background: #faf8f5; }
 .db-table-group { flex: 0 1 auto; }
 
 .table-section { margin-bottom: 24px; }
+
+/* Import badges */
+td.yes { color: var(--yes); font-weight: bold; }
+td.no  { color: var(--no);  font-weight: bold; }
+
+/* Forms */
+.form-card { max-width: 480px; }
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+input[type="text"] {
+    font-family: var(--font);
+    font-size: 14px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color .15s;
+}
+
+input[type="text"]:focus { border-color: var(--primary); }
+
+button[type="submit"] {
+    font-family: var(--font);
+    font-size: 14px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background .15s;
+}
+
+button[type="submit"]:hover { background: var(--primary-dk); }
