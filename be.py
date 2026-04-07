@@ -12,6 +12,11 @@ def q0():
     rows = query_db("SELECT * FROM facility")
     return render_template("q0.html", rows=rows)
 
+@app.route("/q1")
+def q1():
+    tables = {t: query_db(f"SELECT * FROM {t}")
+              for t in ("facility", "supplier", "product", "warehouse", "consumption")}
+    return render_template("q1.html", tables=tables)
 
 @app.route("/q3")
 def q3():
