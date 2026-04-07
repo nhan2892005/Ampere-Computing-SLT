@@ -1,4 +1,4 @@
-from query import Q3_TEMP0
+from query import Q3_TEMP0, Q3_TEMP1
 from flask import Flask, render_template, request, redirect, url_for
 from db import init_db, query_db, get_db
 app = Flask(__name__)
@@ -46,7 +46,8 @@ def q3():
     return render_template(
         "q3.html",
         ref_date=ref_date,
-        temp0=query_db(Q3_TEMP0, {"ref_date": ref_date}),
+        temp0=query_db(f"WITH temp0 AS ({Q3_TEMP0}) SELECT * FROM temp0 ORDER BY id;", {"ref_date": ref_date}),
+        temp1=query_db(f"WITH temp0 AS ({Q3_TEMP0}), temp1 AS ({Q3_TEMP1}) SELECT * FROM temp1 ORDER BY id;", {"ref_date": ref_date}),
     )
 
 init_db()

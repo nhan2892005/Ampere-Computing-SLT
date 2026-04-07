@@ -27,3 +27,22 @@ Q3_TEMP0 = """
               AND w2.exp_date    < w.exp_date
         )
 """
+
+Q3_TEMP1 = """
+    SELECT
+        id, facility, product, category, supplier,
+        import_quantity,
+        SUM(order_quantity) AS total_order,
+        import_date, exp_date, ref_date,
+        CASE WHEN exp_date < ref_date
+             THEN 0
+             ELSE import_quantity - SUM(order_quantity)
+        END AS remain_quantity,
+        CASE WHEN exp_date < ref_date
+             THEN import_quantity - SUM(order_quantity)
+             ELSE 0
+        END AS overdue_quantity
+    FROM temp0
+    GROUP BY id, facility, product, category, supplier,
+             import_quantity, import_date, exp_date, ref_date
+"""
