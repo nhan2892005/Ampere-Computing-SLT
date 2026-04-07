@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from db import init_db, query_db
+from flask import Flask, render_template, request, redirect, url_for
+from db import init_db, query_db, get_db
 app = Flask(__name__)
 
 @app.route("/")
@@ -17,6 +17,27 @@ def q1():
     tables = {t: query_db(f"SELECT * FROM {t}")
               for t in ("facility", "supplier", "product", "warehouse", "consumption")}
     return render_template("q1.html", tables=tables)
+
+@app.route("/q2", methods=["GET", "POST"])
+def q2():
+    error = None
+    if request.method == "POST":
+        name     = request.form.get("name", "").strip()
+        location = request.form.get("location", "").strip()
+        if not name or not location:
+            error = "Both name and location are required."
+        else:
+            try:
+                with get_db() as conn:
+                    conn.execute(
+                        "INSERT INTO facility (name, location) VALUES (?, ?)",
+                        (name, location),
+                    )
+                    conn.commit()
+                return redirect(url_for("q1"))
+            except Exception as e:
+                error = str(e)
+    return render_template("q2.html", error=error)
 
 @app.route("/q3")
 def q3():
