@@ -1,0 +1,175 @@
+{
+  "facility": [
+    {
+      "id": 1,
+      "name": "HN",
+      "location": "Ha Noi"
+    },
+    {
+      "id": 2,
+      "name": "DN",
+      "location": "Da Nang"
+    },
+    {
+      "id": 3,
+      "name": "HCM",
+      "location": "Ho Chi Minh"
+    }
+  ],
+  "supplier": [
+    {
+      "id": 1,
+      "name": "North",
+      "location": "Ha Noi"
+    },
+    {
+      "id": 2,
+      "name": "Central",
+      "location": "Da Nang"
+    },
+    {
+      "id": 3,
+      "name": "South",
+      "location": "Ho Chi Minh"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "APW",
+      "category_name": "Watch",
+      "supplier_id": 1
+    },
+    {
+      "id": 2,
+      "name": "APW Pro",
+      "category_name": "Watch",
+      "supplier_id": 1
+    },
+    {
+      "id": 3,
+      "name": "AA",
+      "category_name": "CPU",
+      "supplier_id": 2
+    },
+    {
+      "id": 4,
+      "name": "AAM",
+      "category_name": "CPU",
+      "supplier_id": 2
+    },
+    {
+      "id": 5,
+      "name": "VNM",
+      "category_name": "Milk",
+      "supplier_id": 3
+    },
+    {
+      "id": 6,
+      "name": "TH",
+      "category_name": "Milk",
+      "supplier_id": 3
+    }
+  ],
+  "warehouse": [
+    {
+      "id": 1,
+      "facility_id": 1,
+      "product_id": 5,
+      "quantity": 100,
+      "import_date": "2026-03-01",
+      "exp_date": "2026-06-01"
+    },
+    {
+      "id": 2,
+      "facility_id": 1,
+      "product_id": 6,
+      "quantity": 200,
+      "import_date": "2026-03-01",
+      "exp_date": "2026-06-01"
+    },
+    {
+      "id": 3,
+      "facility_id": 3,
+      "product_id": 5,
+      "quantity": 200,
+      "import_date": "2026-03-01",
+      "exp_date": "2026-06-01"
+    },
+    {
+      "id": 4,
+      "facility_id": 3,
+      "product_id": 6,
+      "quantity": 100,
+      "import_date": "2026-03-01",
+      "exp_date": "2026-06-01"
+    },
+    {
+      "id": 5,
+      "facility_id": 2,
+      "product_id": 5,
+      "quantity": 500,
+      "import_date": "2025-09-01",
+      "exp_date": "2026-01-01"
+    },
+    {
+      "id": 6,
+      "facility_id": 2,
+      "product_id": 5,
+      "quantity": 100,
+      "import_date": "2026-02-01",
+      "exp_date": "2026-05-01"
+    }
+  ],
+  "consumption": [
+    {
+      "id": 1,
+      "facility_id": 1,
+      "product_id": 5,
+      "quantity": 50,
+      "order_date": "2026-03-01"
+    },
+    {
+      "id": 2,
+      "facility_id": 1,
+      "product_id": 6,
+      "quantity": 50,
+      "order_date": "2026-03-01"
+    },
+    {
+      "id": 3,
+      "facility_id": 3,
+      "product_id": 5,
+      "quantity": 50,
+      "order_date": "2026-04-01"
+    },
+    {
+      "id": 4,
+      "facility_id": 3,
+      "product_id": 6,
+      "quantity": 50,
+      "order_date": "2026-04-01"
+    },
+    {
+      "id": 5,
+      "facility_id": 2,
+      "product_id": 5,
+      "quantity": 200,
+      "order_date": "2025-11-01"
+    },
+    {
+      "id": 6,
+      "facility_id": 2,
+      "product_id": 5,
+      "quantity": 300,
+      "order_date": "2026-04-01"
+    },
+    {
+      "id": 7,
+      "facility_id": 2,
+      "product_id": 5,
+      "quantity": 50,
+      "order_date": "2025-12-01"
+    }
+  ]
+}
