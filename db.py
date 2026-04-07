@@ -36,9 +36,6 @@ def init_db():
         with open("initial_db.sql") as f:
             conn.executescript(f.read())
 
-        if conn.execute("SELECT COUNT(*) FROM facility").fetchone()[0]:
-            return
-
         conn.executescript("""
             INSERT OR IGNORE INTO facility (id, name, location) VALUES
                 (1, 'HN',  'Ha Noi'),
