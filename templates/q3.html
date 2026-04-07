@@ -4,17 +4,18 @@
 
 {% block content %}
     <h4>Q3</h4>
+    <p>Reference date: <strong>{{ ref_date }}</strong></p>
     <p>Expected result: For reference date 2026-04-01</p>
     <div>
         <table>
-            <tr>
+            <thead>
                 <th>Facility</th>
                 <th>Product</th>
                 <th>Supplier</th>
                 <th>Remain Quantity</th>
                 <th>Overdue Quantity</th>
                 <th>Need Import</th>
-            </tr>
+            </thead>
             <tr>
                 <td>HN</td>
                 <td>VNM</td>
@@ -58,6 +59,38 @@
         </table>
     </div>
     <hr />
+    <h4>Temp 0</h4>
+    {{ render_table(temp0) }}
+    
+    <hr />
+    <h4>Temp 1</h4>
+    {{ render_table(temp1) }}
     
     <p>Show result</p>
+    {% if result %}
+    <table>
+        <thead>
+            <tr>
+                <th>Facility</th><th>Product</th><th>Supplier</th>
+                <th>Remain Quantity</th><th>Overdue Quantity</th><th>Need Import</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in result %}
+            <tr>
+                <td>{{ row.facility }}</td>
+                <td>{{ row.product }}</td>
+                <td>{{ row.supplier }}</td>
+                <td>{{ row.remain_quantity }}</td>
+                <td>{{ row.overdue_quantity }}</td>
+                <td class="{{ 'yes' if row.need_import == 'Yes' else 'no' }}">
+                    {{ row.need_import }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty">No data returned.</p>
+    {% endif %}
 {% endblock %}
