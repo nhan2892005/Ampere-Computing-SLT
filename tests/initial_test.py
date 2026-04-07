@@ -1,7 +1,3 @@
-import json
-import pytest
-
-
 class TestIndex:
     def test_returns_200(self, client):
         r = client.get("/")
