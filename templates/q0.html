@@ -5,20 +5,5 @@
 {% block content %}
     <h4>Q0</h4>
     <p>Show facilities</p>
-    <div>
-        <table>
-            <tr>
-                {% for key in keys %}
-                <th>{{key}}</th>
-                {% endfor %}
-            </tr>
-            {% for item in data %}
-            <tr>
-                {% for key in keys %}
-                <td>{{item[key]}}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
+    {{ render_table(rows) }}
 {% endblock %}
