@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Q2{% endblock %}
+
+{% block content %}
+<div class="card form-card">
+    <h2>Q2</h2>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/q2">
+        <div class="field">
+            <label for="name">Facility Name</label>
+            <input id="name" type="text" name="name" placeholder="e.g. SLT" required />
+        </div>
+        <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" name="location" placeholder="e.g. Ho Chi Minh" required />
+        </div>
+        <button type="submit">Add Facility</button>
+    </form>
+</div>
+{% endblock %}
