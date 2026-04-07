@@ -1,10 +1,10 @@
-FROM python:3.9.6
+FROM python:3.9-slim
 
 WORKDIR /iiq
 
 COPY requirement.txt /iiq/
 
-RUN pip3 install -r requirement.txt
+RUN pip3 install --no-cache-dir -r requirement.txt
 
 COPY . /iiq/
 

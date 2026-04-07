@@ -27,6 +27,10 @@ def get_db():
         finally:
             conn.close()
 
+def query_db(sql, params={}):
+    with get_db() as conn:
+        return [dict(r) for r in conn.execute(sql, params).fetchall()]
+
 def init_db():
     with get_db() as conn:
         with open("initial_db.sql") as f:

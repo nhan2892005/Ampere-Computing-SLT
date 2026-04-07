@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% from "macros.html" import render_table %}
+{% block title %}Q3{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q3</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
-    <style>
-        table,
-        tr,
-        th,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-    </style>
-</head>
-
-<body>
+{% block content %}
     <h4>Q3</h4>
     <p>Expected result: For reference date 2026-04-01</p>
     <div>
@@ -76,6 +60,4 @@
     <hr />
     
     <p>Show result</p>
-</body>
-
-</html>
+{% endblock %}

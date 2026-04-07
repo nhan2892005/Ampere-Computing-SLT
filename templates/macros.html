@@ -1,0 +1,24 @@
+{% macro render_table(rows) %}
+{% if rows %}
+<div class="table-wrapper"> <table>
+        <thead>
+            <tr>
+                {% for key in rows[0].keys() %}
+                <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for key in row.keys() %}
+                <td>{{ row[key] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div> {% else %}
+<p class="empty">No data.</p>
+{% endif %}
+{% endmacro %}
