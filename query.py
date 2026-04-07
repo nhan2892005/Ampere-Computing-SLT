@@ -46,3 +46,21 @@ Q3_TEMP1 = """
     GROUP BY id, facility, product, category, supplier,
              import_quantity, import_date, exp_date, ref_date
 """
+
+Q3_FINAL_SQL  = f"""
+WITH temp0 AS ({Q3_TEMP0}),
+temp1 AS ({Q3_TEMP1}),
+aggregated AS (
+    SELECT
+        facility, product, supplier,
+        MIN(id)              AS first_id,
+        SUM(remain_quantity) AS remain_quantity,
+        SUM(overdue_quantity) AS overdue_quantity,
+        CASE WHEN SUM(remain_quantity) < 100 THEN 'Yes' ELSE 'No' END AS need_import
+    FROM temp1
+    GROUP BY facility, product, supplier
+)
+SELECT facility, product, supplier, remain_quantity, overdue_quantity, need_import
+FROM aggregated
+ORDER BY first_id;
+"""
