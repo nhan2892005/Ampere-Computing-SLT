@@ -62,3 +62,38 @@ main {
 h1 { font-size: 1.4rem; margin-bottom: 8px; }
 h2 { font-size: 1.15rem; margin-bottom: 16px; border-bottom: 2px solid var(--primary); padding-bottom: 6px; }
 h4 { font-size: .95rem; margin: 16px 0 8px; color: var(--text-muted); }
+
+/* Tables */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+}
+
+th, td {
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+thead { background: #f0ede8; }
+th    { font-weight: bold; }
+
+tbody tr:hover { background: #faf8f5; }
+
+.db-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.db-table-group { flex: 0 1 auto; }
+
+.table-section { margin-bottom: 24px; }
