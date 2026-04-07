@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS warehouse (
 );
 
 CREATE TABLE IF NOT EXISTS consumption (
-    id INTEGER,
+    id INTEGER PRIMARY KEY,
     facility_id INTEGER,
     product_id INTEGER,
     quantity INTEGER,
