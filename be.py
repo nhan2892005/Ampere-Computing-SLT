@@ -1,3 +1,4 @@
+from query import Q3_TEMP0
 from flask import Flask, render_template, request, redirect, url_for
 from db import init_db, query_db, get_db
 app = Flask(__name__)
@@ -41,7 +42,12 @@ def q2():
 
 @app.route("/q3")
 def q3():
-    return render_template("q3.html")
+    ref_date = "2026-04-01"
+    return render_template(
+        "q3.html",
+        ref_date=ref_date,
+        temp0=query_db(Q3_TEMP0, {"ref_date": ref_date}),
+    )
 
 init_db()
 

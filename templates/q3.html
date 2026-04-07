@@ -4,6 +4,7 @@
 
 {% block content %}
     <h4>Q3</h4>
+    <p>Reference date: <strong>{{ ref_date }}</strong></p>
     <p>Expected result: For reference date 2026-04-01</p>
     <div>
         <table>
@@ -58,6 +59,9 @@
         </table>
     </div>
     <hr />
+
+    <h4>Temp 0</h4>
+    {{ render_table(temp0) }}
     
     <p>Show result</p>
 {% endblock %}
